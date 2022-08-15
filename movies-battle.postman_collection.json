@@ -6,25 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "topicos",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/topicos",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"topicos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "ranking",
 			"request": {
 				"method": "GET",
@@ -49,7 +30,52 @@
 			"response": []
 		},
 		{
+			"name": "v3/api-docs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v3/api-docs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v3",
+						"api-docs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "quiz",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/game/quiz",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game",
+						"quiz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "finish",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -94,55 +120,6 @@
 						"game",
 						"quiz",
 						"tt0137523"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "topicos/id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/topicos/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"topicos",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "topicos/id",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgZG8gRsOzcnVtIGRhIEFsdXJhIiwic3ViIjoiMiIsImlhdCI6MTY1MjY3MTczNCwiZXhwIjoxNjUyNzU4MTM0fQ.hpjXhcuz67oVxdCb5kBfJwr1Wb9J1lvu-bvUsGUloKg"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8080/topicos/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"topicos",
-						"1"
 					]
 				}
 			},

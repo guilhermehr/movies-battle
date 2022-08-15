@@ -8,12 +8,10 @@ import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import br.com.ada.moviesbattle.service.MovieServiceImpl;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSpringDataWebSupport
 @EnableCaching
-@EnableSwagger2
 @EnableScheduling
 public class MoviesBattleApplication {
 
