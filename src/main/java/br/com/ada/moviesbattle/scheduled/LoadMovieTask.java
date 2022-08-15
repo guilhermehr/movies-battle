@@ -20,7 +20,7 @@ public class LoadMovieTask {
 	private static final Logger logger = LoggerFactory.getLogger(LoadMovieTask.class);
 	
 	@Async
-	@Scheduled(fixedDelay = 100000)
+	@Scheduled(fixedDelay = 120000)
 	public void loadMovies() throws Exception {
 		
 		logger.info("Starting scheduled task to load movies.");
