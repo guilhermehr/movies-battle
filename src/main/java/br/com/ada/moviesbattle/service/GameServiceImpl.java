@@ -66,7 +66,7 @@ public class GameServiceImpl {
 		
 		List<Game> gameList = gameRepository.findByUserIdAndStatus(user.getId(), StatusGame.PENDING);
 
-		if (gameList == null && gameList.isEmpty()) {
+		if (gameList == null || gameList.isEmpty()) {
 			throw new Exception("Start a new game! id: " + user.getId());
 		}
 		
@@ -94,6 +94,18 @@ public class GameServiceImpl {
 		return gameRepository.ranking();
 		
 	}
+	
+	
+	public void finish(User user) throws Exception {
+		List<Game> gameList = gameRepository.findByUserIdAndStatus(user.getId(), StatusGame.PENDING);
+		if (gameList == null || gameList.isEmpty()) {
+			throw new Exception("No game to finish! id: " + user.getId());
+		}
+		Game game = gameList.get(0);
+		game.setStatus(StatusGame.COMPLETED);
+		gameRepository.save(game);
+	}
+	
 	
 	private boolean checkMovieRepetition(Game game, List<Movie> movies) {
 		return (game.getMovieOption1().getImdbID().equalsIgnoreCase(movies.get(0).getImdbID()) 

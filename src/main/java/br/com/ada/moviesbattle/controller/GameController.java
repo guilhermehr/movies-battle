@@ -47,6 +47,12 @@ public class GameController {
 	}
 	
 	
+	@GetMapping("/finish")
+	public ResponseEntity<String> finish() throws Exception {
+		gameService.finish(getUserAuthenticated());
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
 	private User getUserAuthenticated() {
 		UsernamePasswordAuthenticationToken auth = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
 		return (User) auth.getPrincipal();
