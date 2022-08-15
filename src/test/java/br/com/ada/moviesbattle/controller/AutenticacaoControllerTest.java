@@ -1,7 +1,6 @@
 package br.com.ada.moviesbattle.controller;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,9 +24,9 @@ public class AutenticacaoControllerTest {
 	private MockMvc mockMvc;
 	
 	@Test
-	public void deveriaDevolver400CasoDadosDeAutenticacaoEstejamIncorretos() throws Exception {
+	public void shouldReturn400WhenIncorrectAuthentication() throws Exception {
 		URI uri = new URI("/auth");
-		String json = "{\"email\":\"invalido@email.com\",\"senha\":\"123456\"}";
+		String json = "{\"email\":\"invalido@email.com\",\"password\":\"123456\"}";
 		mockMvc
 		.perform(MockMvcRequestBuilders
 				.post(uri)

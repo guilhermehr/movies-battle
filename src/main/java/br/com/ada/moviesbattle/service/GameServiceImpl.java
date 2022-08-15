@@ -74,8 +74,12 @@ public class GameServiceImpl {
 		
 		Boolean result = compareQuizOptions(game, imdbID);
 	
-		List<Movie> movies = movieService.findRandom(numOptions);
+		List<Movie> movies = new ArrayList<>();
 		
+		do {
+			movies = movieService.findRandom(numOptions);
+		}while(checkMovieRepetition(game, movies));
+			
 		game.setMovieOption1(movies.get(0));
 		game.setMovieOption2(movies.get(1));
 		
@@ -89,6 +93,13 @@ public class GameServiceImpl {
 		
 		return gameRepository.ranking();
 		
+	}
+	
+	private boolean checkMovieRepetition(Game game, List<Movie> movies) {
+		return (game.getMovieOption1().getImdbID().equalsIgnoreCase(movies.get(0).getImdbID()) 
+				|| game.getMovieOption1().getImdbID().equalsIgnoreCase(movies.get(1).getImdbID()))
+				&& (game.getMovieOption2().getImdbID().equalsIgnoreCase(movies.get(0).getImdbID()))
+				|| game.getMovieOption2().getImdbID().equalsIgnoreCase(movies.get(1).getImdbID());
 	}
 	
 
